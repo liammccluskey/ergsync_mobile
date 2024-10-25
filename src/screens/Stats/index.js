@@ -9,7 +9,7 @@ const getStyles = theme => StyleSheet.create({
     root: {},
 })
 
-const ProfileScreenComponent = props => {
+const StatsScreenComponent = props => {
     const {
         ...rest
     } = props
@@ -31,4 +31,4 @@ const mapDispatchToProps = {
 
 }
 
-export const ProfileScreen = connect(mapStateToProps, mapDispatchToProps)(ProfileScreenComponent)
+export const StatsScreen = connect(mapStateToProps, mapDispatchToProps)(StatsScreenComponent)

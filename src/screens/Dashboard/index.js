@@ -5,11 +5,11 @@ import {connect} from 'react-redux'
 import { ScreenContainer } from '../../containers/ScreenContainer'
 import { getTheme } from '../../redux/theme'
 
-const getStyles = theme => ({
-    root: {}
+const getStyles = theme => StyleSheet.create({
+    root: {},
 })
 
-const HomeScreenComponent = props => {
+const DashboardScreenComponent = props => {
     const {
         ...rest
     } = props
@@ -31,4 +31,4 @@ const mapDispatchToProps = {
 
 }
 
-export const HomeScreen = connect(mapStateToProps, mapDispatchToProps)(HomeScreenComponent)
+export const DashboardScreen = connect(mapStateToProps, mapDispatchToProps)(DashboardScreenComponent)
