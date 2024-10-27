@@ -9,7 +9,7 @@ const getStyles = theme => StyleSheet.create({
     root: {},
 })
 
-const ActivityScreenScreenComponent = props => {
+const ExploreScreenComponent = props => {
     const {
         ...rest
     } = props
@@ -31,4 +31,4 @@ const mapDispatchToProps = {
 
 }
 
-export const ActivityScreen = connect(mapStateToProps, mapDispatchToProps)(ActivityScreenComponent)
+export const ExploreScreen = connect(mapStateToProps, mapDispatchToProps)(ExploreScreenComponent)

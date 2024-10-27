@@ -7,7 +7,8 @@ import { getTheme } from '../../redux/theme'
 const getStyles = theme => ({
     root: {
         flex: 1,
-        backgroundColor: theme.bgc
+        backgroundColor: theme.bgc,
+        alignItems: 'stretch'
     }
 })
 
@@ -20,14 +21,14 @@ const ScreenContainerComponent = props => {
 
     return (
         <SafeAreaView style={styles.root}>
-            {...children}
+            {children}
         </SafeAreaView>
     )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
     theme: getTheme(state),
-}
+})
 
 export const ScreenContainer = connect(mapStateToProps)(ScreenContainerComponent)
 

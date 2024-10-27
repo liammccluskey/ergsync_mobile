@@ -1,9 +1,5 @@
 import React from 'react'
-import { 
-    View, 
-    Text,
-    StyleSheet,
- } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import {connect} from 'react-redux'
 
 import { ScreenContainer } from '../../containers/ScreenContainer'
@@ -13,7 +9,7 @@ const getStyles = theme => StyleSheet.create({
     root: {},
 })
 
-const DashboardScreenComponent = props => {
+const ClubScreenComponent = props => {
     const {
         ...rest
     } = props
@@ -22,9 +18,7 @@ const DashboardScreenComponent = props => {
 
     return (
         <ScreenContainer>
-            <View style={styles.root}>
-                <Text>Dashboard</Text>
-            </View>
+
         </ScreenContainer>
     )
 }
@@ -37,4 +31,4 @@ const mapDispatchToProps = {
 
 }
 
-export const DashboardScreen = connect(mapStateToProps, mapDispatchToProps)(DashboardScreenComponent)
+export const ClubScreen = connect(mapStateToProps, mapDispatchToProps)(ClubScreenComponent)
