@@ -34,7 +34,7 @@ const getStyles = (theme, priority, type, customStyle) => StyleSheet.create({
     title: {
         fontSize: {
             0: 15,
-            1: 10
+            1: 12
         }[priority],
         color: {
             solid: theme.bgcLight,

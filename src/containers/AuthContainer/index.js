@@ -7,6 +7,7 @@ import {Text} from 'react-native'
 import { auth } from '../../networking'
 import { LoggedInNavigator, LoggedOutNavigator } from '../../navigation/AppNavigator'
 import { 
+    getLoadingPostUser, 
     getFirebaseUser,
     getMongoUser,
 
@@ -32,11 +33,10 @@ const AuthContainerComponent = props => {
         })
 
         return unsubscribe
-    }, [])
+    }, [props.loadingPostUser])
 
     return (
         <NavigationContainer>
-            <Text>Root screen</Text>
             {props.firebaseUser && props.mongoUser ? 
                 <LoggedInNavigator />
                 : <LoggedOutNavigator />
@@ -48,6 +48,7 @@ const AuthContainerComponent = props => {
 const mapStateToProps = state => ({
     firebaseUser: getFirebaseUser(),
     mongoUser: getMongoUser(state),
+    loadingPostUser: getLoadingPostUser(state),
 })
 
 const mapDispatchToProps = {

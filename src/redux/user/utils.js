@@ -25,21 +25,15 @@ export const __fetchMongoUserBy_id = async _id => {
 export const __postMongoUser = async (firebaseUser, referralCode=undefined, isRecruiter) => {
     const {
         displayName,
-        email,
         photoURL,
         uid
     } = firebaseUser
 
     try {
         const res = await api.post('/users', {
-            user: {
-                displayName,
-                email,
-                photoURL,
-                uid,
-                isRecruiter
-            },
-            referralCode,
+            displayName,
+            iconURL: photoURL,
+            uid,
         })
         return res
     } catch (error) {

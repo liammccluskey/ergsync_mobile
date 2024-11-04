@@ -47,6 +47,7 @@ export const postMongoUser = (
     onFailure
 ) => async (dispatch, getState) => {
     const state = getState()
+    dispatch(UserActions.setLoadingPostUser(true))
     
     try {
         const res = await UserUtils.__postMongoUser(firebaseUser)
@@ -55,9 +56,11 @@ export const postMongoUser = (
     } catch (error) {
         const errorMessage = error.response ? error.response.data.message : error.message
         console.log(errorMessage)
+        console.log('error posting user')
         dispatch(addMessage(errorMessage, true))
         onFailure()
     }
+    dispatch(UserActions.setLoadingPostUser(false))
 }
 
 // TODO : unused, consider deleting
@@ -167,17 +170,12 @@ export const patchUserPhoto = (
 
 export const patchUserThemeColor = (themeColor, onSuccess = () => {}) => async (dispatch, getState) => {
     dispatch(ThemeActions.setThemeColor(themeColor))
-    dispatch(patchUserSettings('theme.themeColor', themeColor, onSuccess, undefined, true))
+    dispatch(patchUser({themeColor}, onSuccess))
 }
 
 export const patchUserTintColor = (tintColor, onSuccess = () => {}) => async (dispatch, getState) => {
-    const onPatchSuccess = () => {
-        onSuccess()
-        dispatch(addMessage('Changes saved.'))
-    }
-    
     dispatch(ThemeActions.setTintColor(tintColor))
-    dispatch(patchUserSettings('theme.tintColor', tintColor, onPatchSuccess, undefined, true))
+    dispatch(patchUser({tintColor}, onSuccess))
 }
 
 export const signOutUser = onSuccess => async (dispatch, getState) => {

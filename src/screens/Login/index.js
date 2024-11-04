@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { SafeAreaView, View, Image, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native'
 import {connect} from 'react-redux'
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth'
 
 import {fetchThisMongoUser, postMongoUser} from '../../redux/user'
-import { getTheme } from '../../redux/theme'
+import { getTheme, setThemeColor, setTintColor } from '../../redux/theme'
 import { auth } from '../../networking'
 import {getFirebaseErrorMessage} from '../../networking/utils'
 import { Button } from '../../components/common/Button'
@@ -93,6 +93,15 @@ const LoginScreenComponent = props => {
     const [error, setError] = useState('')
     const [isLogin, setIsLogin] = useState(true)
 
+    useEffect(() => {
+        props.setThemeColor(0)
+        props.setTintColor(0)
+    }, [])
+
+    useEffect(() => {
+        setError('')
+    }, [email, password, name])
+
     const styles = getStyles(props.theme)
 
     const onPressSubmitLogin = async () => {
@@ -134,9 +143,9 @@ const LoginScreenComponent = props => {
 
     const onPressLogin = () => {
         setIsLogin(true)
-        setEmail('')
-        setPassword('')
-        setName('')
+        setEmail('liammail100@gmail.com')
+        setPassword('password')
+        setName('liam mccluskey')
         setError('')
     }
 
@@ -231,12 +240,14 @@ const LoginScreenComponent = props => {
 }
 
 const mapStateToProps = state => ({
-    theme: getTheme(state)
+    theme: getTheme(state),
 })
 
 const mapDispatchToProps = {
     fetchThisMongoUser,
-    postMongoUser
+    postMongoUser,
+    setThemeColor,
+    setTintColor
 }
 
 export const LoginScreen = connect(mapStateToProps, mapDispatchToProps)(LoginScreenComponent)

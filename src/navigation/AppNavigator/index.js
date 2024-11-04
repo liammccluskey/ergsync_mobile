@@ -69,6 +69,7 @@ const ExploreStackComponent = props => {
         headerTintColor: props.theme.tint
       }} 
     >
+      <Stack.Screen name="Explore" component={ExploreScreen} />
       <Stack.Screen name="Club" component={ClubScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Session" component={SessionScreen} />
@@ -99,7 +100,7 @@ const LoggedInNavigatorComponent = props => {
   return (
     <Tab.Navigator 
       screenOptions={{
-        headerShown: false, 
+        headerShown: false,
         tabBarActiveTintColor: props.theme.tint, 
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {

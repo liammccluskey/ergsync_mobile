@@ -53,3 +53,8 @@ export const setLoadingUserStats = loading => ({
     type: Types.SET_LOADING_USER_STATS,
     value: loading
 })
+
+export const setLoadingPostUser = loading => ({
+    type: Types.SET_LOADING_POST_USER,
+    value: loading
+})

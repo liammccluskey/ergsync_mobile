@@ -113,3 +113,7 @@ export const FirebaseErrors = {
         'server-file-wrong-size': 'File on the client does not match the size of the file recieved by the server. Try uploading again.',
     }
 }
+
+export const PageSizes = {
+    dashboardActivities: 10,
+}

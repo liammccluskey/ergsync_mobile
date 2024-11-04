@@ -20,6 +20,7 @@ export const themeReducer = (state = ThemeState, action) => {
                 themeColor: action.value
             }
         case Types.SET_TINT_COLOR:
+            console.log('setting tint color: ' + action.value)
             return {
                 ...state,
                 tintColor: action.value

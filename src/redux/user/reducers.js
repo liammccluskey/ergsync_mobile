@@ -10,6 +10,7 @@ const UserState = {
     profileUser: null,
     loadingProfileUser: false,
     profileUserNotFound: false,
+    loadingPostUser: false,
 
     // calculated
     firebaseUser: null,
@@ -89,6 +90,11 @@ export const userReducer = (state = UserState, action) => {
                 ...state,
                 firebaseUser: null,
                 mongoUser: null,
+            }
+        case Types.SET_LOADING_POST_USER:
+            return {
+                ...state,
+                loadingPostUser: action.value
             }
         default:
             return state

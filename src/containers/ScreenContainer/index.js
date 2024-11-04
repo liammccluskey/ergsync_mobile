@@ -1,5 +1,5 @@
 import React from 'react'
-import {SafeAreaView} from 'react-native'
+import {SafeAreaView, View} from 'react-native'
 import {connect} from 'react-redux'
 
 import { getTheme } from '../../redux/theme'

@@ -14,20 +14,7 @@ export const getLoadingProfileUser = state => state.user.loadingProfileUser
 export const getProfileUserNotFound = state => state.user.profileUserNotFound
 export const getUserStats = state => state.user.userStats
 export const getLoadingUserStats = state => state.user.loadingUserStats
-
-export const getHasAdminPrivileges = createSelector(
-    [
-        getMongoUser
-    ],
-    (mongoUser) => mongoUser && (isAdmin(mongoUser) || isSuperAdmin(mongoUser))
-)
-
-export const getHasSuperAdminPrivileges = createSelector(
-    [
-        getMongoUser
-    ],
-    (mongoUser) => mongoUser && isSuperAdmin(mongoUser)
-)
+export const getLoadingPostUser = state => state.user.loadingPostUser
 
 export const getUser = createSelector(
     [
@@ -46,32 +33,4 @@ export const getIsLoggedIn = createSelector(
         getFirebaseUser
     ],
     (mongoUser, firebaseUser) => !!mongoUser && !!firebaseUser
-)
-
-export const getIsCandidatePremiumUser = createSelector(
-    [
-        getMongoUser
-    ],
-    mongoUser => mongoUser && 
-        mongoUser.subscription && 
-        mongoUser.subscription.tier === SubscriptionTiers.candidatePremium &&
-        mongoUser.subscription.status === 'active'
-)
-
-export const getIsRecruiterPremiumUser = createSelector(
-    [
-        getMongoUser
-    ],
-    mongoUser => mongoUser && 
-        mongoUser.subscription &&
-        mongoUser.subscription.tier === SubscriptionTiers.recruiterPremiium &&
-        mongoUser.subscription.status === 'active'
-)
-
-export const getIsPremiumUser = createSelector(
-    [
-        getIsCandidatePremiumUser,
-        getIsRecruiterPremiumUser
-    ],
-    (isCandidatePremiumUser, isRecruiterPremiumUser) => isCandidatePremiumUser || isRecruiterPremiumUser
 )

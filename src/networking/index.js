@@ -2,8 +2,8 @@ import axios from 'axios'
 import {initializeApp} from "firebase/app"
 import {getAuth, setPersistence, browserLocalPersistence} from "firebase/auth"
 import {getStorage} from 'firebase/storage'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { getReactNativePersistence } from 'firebase/auth/react-native'
+// import AsyncStorage from '@react-native-async-storage/async-storage'
+// import { getReactNativePersistence } from 'firebase/auth/react-native'
 
 import {
     HEROKU_API_BASE_URL,
